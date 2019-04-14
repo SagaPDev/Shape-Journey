@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DirtAutotile.tres" type="TileSet" id=2]
+
+[node name="nivel alfa" type="Node2D"]
+
+[node name="Jugador" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 480 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+tile_data = PoolIntArray( 262158, 0, 196608, 262159, 0, 196609, 262160, 0, 196609, 262161, 0, 196609, 262162, 0, 196610, 393223, 0, 196608, 393224, 0, 196609, 393225, 0, 196609, 393226, 0, 196609, 393227, 0, 196610, 524288, 0, 196608, 524289, 0, 196609, 524290, 0, 196609, 524291, 0, 196609, 524292, 0, 196609, 524293, 0, 196610 )
+
