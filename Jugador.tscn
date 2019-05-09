@@ -1,83 +1,114 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Jugador.gd" type="Script" id=1]
-[ext_resource path="res://sprites/jugador/dotpict_20190408_181319.png" type="Texture" id=2]
-[ext_resource path="res://sprites/jugador/dotpict_20190408_181653.png" type="Texture" id=3]
-[ext_resource path="res://sprites/jugador/dotpict_20190408_181747.png" type="Texture" id=4]
-[ext_resource path="res://sprites/Background/Sky.png" type="Texture" id=5]
-[ext_resource path="res://sprites/Background/pixil-frame-0 (1).png" type="Texture" id=6]
+[ext_resource path="res://sprites/Objetcs/llave.png" type="Texture" id=2]
+[ext_resource path="res://sprites/jugador/Circulo/dotpict_20190416_184421.png" type="Texture" id=3]
+[ext_resource path="res://sprites/jugador/Trianglo/dotpict_20190416_184452.png" type="Texture" id=4]
+[ext_resource path="res://sprites/jugador/Circulo/dotpict_20190416_184443.png" type="Texture" id=5]
+[ext_resource path="res://sprites/jugador/Trianglo/dotpict_20190416_185204.png" type="Texture" id=6]
+[ext_resource path="res://sprites/jugador/cuadrado/cup muerto.png" type="Texture" id=7]
+[ext_resource path="res://sprites/jugador/cuadrado/Idle.png" type="Texture" id=8]
+[ext_resource path="res://sprites/jugador/cuadrado/Caida.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Background/Sky.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Background/pixil-frame-0 (1).png" type="Texture" id=11]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Circulo",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Triangulo",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "circulo muerto",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Puas",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "cuadrado muerto",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Cuadrado",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Ground_pound_hit",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 32.0
-
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 31.7517
+height = 9.91606
 
 [node name="Jugador" type="KinematicBody2D"]
-position = Vector2( 192, 187.92 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="SpriteCuadrado" type="Sprite" parent="."]
-position = Vector2( 1, 9 )
-scale = Vector2( 0.14, 0.14 )
+[node name="llave" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -38 )
+scale = Vector2( 0.334599, 0.177335 )
 texture = ExtResource( 2 )
 
-[node name="SpriteTriangulo" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, 8 )
-scale = Vector2( 0.125, 0.128 )
-texture = ExtResource( 3 )
-
-[node name="SpriteCirculo" type="Sprite" parent="."]
-visible = false
-position = Vector2( -0.9, 10 )
-scale = Vector2( 0.11, 0.13 )
-texture = ExtResource( 4 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.164963, 9.03551 )
+scale = Vector2( 2.27498, 2.27467 )
+frames = SubResource( 1 )
+animation = "Cuadrado"
 
 [node name="ColisionCuadrado" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColisionCirculo" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 2 )
-disabled = true
-
-[node name="ColisionTriangulo" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, 11 )
-scale = Vector2( 3.7, 4.3 )
+rotation = 1.5708
 shape = SubResource( 3 )
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 current = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 smoothing_enabled = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 motion_scale = Vector2( 0.1, 0.1 )
 motion_mirroring = Vector2( 640, 640 )
 
 [node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 visible = false
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="pixil-frame-0 (1)" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2( 16, 112 )
 scale = Vector2( 0.245833, 0.185185 )
-texture = ExtResource( 6 )
-
+texture = ExtResource( 11 )

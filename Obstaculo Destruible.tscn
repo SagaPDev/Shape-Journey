@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Obstaculo Destruible.gd" type="Script" id=1]
+[ext_resource path="res://sprites/Objetcs/textura.png" type="Texture" id=2]
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( 63.3789, -25.3969 )
+b = Vector2( -64.4813, -25.0896 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64.8909, 17.0754 )
+
+[node name="Obstaculo Destruible" type="StaticBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 0.494181 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CaidaEscaner" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Tabla" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

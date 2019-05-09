@@ -1,0 +1,45 @@
+[gd_scene format=2]
+
+[node name="ControlInstrucciones" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 590.0
+margin_bottom = 360.0
+
+[node name="LabelInstrucciones" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 540.0
+margin_bottom = 99.0
+text = "Usa las teclas Z y C para cambiar de forma.
+
+Presiona Z in el aire mientras eres un cuadrado para un ataque que derrota enemigos y destrulle obstaculos.
+
+Mientras eres un circulo puedes realizar un salto doble"
+autowrap = true
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 103.0
+margin_right = 540.0
+margin_bottom = 123.0
+
+[node name="Atras" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer"]
+margin_left = 248.0
+margin_right = 291.0
+margin_bottom = 20.0
+text = "atras"

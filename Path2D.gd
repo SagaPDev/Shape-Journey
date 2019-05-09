@@ -8,4 +8,4 @@ var speed = 100
 
 func _physics_process(delta):
     # Change the offset or unit_offset to move the PathFollow and its children.
-    $PathFollow2D.offset += speed * delta
+	$PathFollow2D.offset += speed * delta
