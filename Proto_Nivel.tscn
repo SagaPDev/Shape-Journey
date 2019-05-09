@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DirtAutotile.tres" type="TileSet" id=2]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
+
+[node name="Nivel" type="Node2D"]
+
+[node name="Jugador" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 608 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+tile_data = PoolIntArray( 131070, 0, 5, 196606, 0, 65541, 262142, 0, 65541, 327678, 0, 65541, 393214, 0, 65541, 458750, 0, 65541, 524286, 0, 65541, 589822, 0, 65541, 655358, 0, 65541, 720894, 0, 65542, 720895, 0, 196609, 655360, 0, 196609, 655361, 0, 196609, 655362, 0, 196609, 655363, 0, 196609, 655364, 0, 196609, 655365, 0, 196609, 655366, 0, 196609, 655367, 0, 196609, 655368, 0, 196609, 655369, 0, 196609, 655370, 0, 196609, 655371, 0, 196609, 655372, 0, 196609, 655373, 0, 196609, 655374, 0, 196609, 655375, 0, 196609, 655376, 0, 196609, 655377, 0, 196609, 655378, 0, 196610 )
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 896, 608 )
+

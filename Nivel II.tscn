@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DirtAutotile.tres" type="TileSet" id=2]
+[ext_resource path="res://Nivel Completado.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PlataformasC.gd" type="Script" id=4]
+[ext_resource path="res://sprites/Objetcs/textura.png" type="Texture" id=5]
+[ext_resource path="res://Caida.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Menu de pausa.tscn" type="PackedScene" id=7]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 192.854, -1.94802, -192.854, 1.94802, 896, 160, 0, -72.0766, 0, 72.0766, 672, 320, -146.101, -1.94802, 146.101, 1.94802, 896, 512, 0, 146.101, 0, -146.101, 1120, 320, 44.8044, 0, -44.8044, 0, 896, 160 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 128, 14.2651 )
+
+[node name="Nivel II" type="Node2D"]
+
+[node name="Jugador" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, 352 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+tile_data = PoolIntArray( 65528, 0, 1, 65529, 0, 65536, 65530, 0, 65536, 65531, 0, 65536, 65532, 0, 65536, 65533, 0, 65536, 65534, 0, 65536, 65535, 0, 65536, 0, 0, 65536, 1, 0, 65536, 2, 0, 65536, 3, 0, 65536, 4, 0, 65536, 5, 0, 65536, 6, 0, 65536, 7, 0, 65536, 8, 0, 9, 9, 0, 196609, 10, 0, 196609, 11, 0, 196609, 12, 0, 196609, 13, 0, 196609, 14, 0, 196609, 15, 0, 196609, 16, 0, 196609, 17, 0, 196609, 18, 0, 196609, 19, 0, 196609, 20, 0, 10, 21, 0, 65536, 22, 0, 65536, 23, 0, 65536, 24, 0, 65536, 25, 0, 65536, 26, 0, 65536, 27, 0, 65536, 28, 0, 2, 131064, 0, 131073, 131065, 0, 196619, 131066, 0, 196619, 131067, 0, 196619, 131068, 0, 196619, 131069, 0, 196619, 131070, 0, 3, 131071, 0, 131072, 65536, 0, 131072, 65537, 0, 131072, 65538, 0, 131072, 65539, 0, 131072, 65540, 0, 131072, 65541, 0, 131072, 65542, 0, 4, 65543, 0, 196619, 65544, 0, 131074, 65556, 0, 65537, 65557, 0, 131072, 65558, 0, 131072, 65559, 0, 4, 65560, 0, 196619, 65561, 0, 196619, 65562, 0, 196619, 65563, 0, 196619, 65564, 0, 131074, 196600, 0, 131073, 196601, 0, 196619, 196602, 0, 196619, 196603, 0, 196619, 196604, 0, 196619, 196605, 0, 3, 196606, 0, 65538, 131078, 0, 65537, 131079, 0, 131072, 131080, 0, 65538, 131095, 0, 131073, 131096, 0, 196619, 131097, 0, 196619, 131098, 0, 196619, 131099, 0, 196619, 131100, 0, 131074, 262136, 0, 131073, 262137, 0, 196619, 262138, 0, 196619, 262139, 0, 196619, 262140, 0, 196619, 262141, 0, 131074, 196631, 0, 131073, 196632, 0, 196619, 196633, 0, 196619, 196634, 0, 196619, 196635, 0, 196619, 196636, 0, 131074, 327672, 0, 131073, 327673, 0, 196619, 327674, 0, 196619, 327675, 0, 196619, 327676, 0, 196619, 327677, 0, 131074, 262167, 0, 131073, 262168, 0, 196619, 262169, 0, 196619, 262170, 0, 196619, 262171, 0, 196619, 262172, 0, 131074, 393208, 0, 131073, 393209, 0, 196619, 393210, 0, 196619, 393211, 0, 196619, 393212, 0, 196619, 393213, 0, 131074, 327685, 0, 1, 327686, 0, 65536, 327687, 0, 65536, 327688, 0, 2, 327703, 0, 131073, 327704, 0, 196619, 327705, 0, 196619, 327706, 0, 196619, 327707, 0, 196619, 327708, 0, 131074, 458744, 0, 131073, 458745, 0, 196619, 458746, 0, 196619, 458747, 0, 196619, 458748, 0, 196619, 458749, 0, 65539, 458750, 0, 65536, 458751, 0, 65536, 393216, 0, 65536, 393217, 0, 65536, 393218, 0, 2, 393221, 0, 131073, 393222, 0, 196619, 393223, 0, 196619, 393224, 0, 131074, 393237, 0, 5, 393239, 0, 131073, 393240, 0, 196619, 393241, 0, 196619, 393242, 0, 196619, 393243, 0, 196619, 393244, 0, 131074, 524280, 0, 65537, 524281, 0, 131072, 524282, 0, 131072, 524283, 0, 131072, 524284, 0, 131072, 524285, 0, 131072, 524286, 0, 131072, 524287, 0, 131072, 458752, 0, 131072, 458753, 0, 131072, 458754, 0, 65538, 458757, 0, 65537, 458758, 0, 131072, 458759, 0, 131072, 458760, 0, 65538, 458772, 0, 196608, 458773, 0, 196611, 458774, 0, 196609, 458775, 0, 65544, 458776, 0, 131072, 458777, 0, 131072, 458778, 0, 131072, 458779, 0, 131072, 458780, 0, 65538 )
+
+[node name="Nivel Completado" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1376, 352 )
+
+[node name="PlataformasC" type="Path2D" parent="."]
+editor/display_folded = true
+position = Vector2( 227.892, 54.8996 )
+scale = Vector2( 0.739382, 0.730082 )
+curve = SubResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PlataformasC"]
+position = Vector2( 896, 160 )
+rotate = false
+
+[node name="StaticBody2D" type="KinematicBody2D" parent="PlataformasC/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformasC/PathFollow2D/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="PlataformasC/PathFollow2D/StaticBody2D"]
+scale = Vector2( 4, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="PlataformasC"]
+position = Vector2( 1119.98, 323.636 )
+offset = 976.26
+rotate = false
+
+[node name="StaticBody2D" type="KinematicBody2D" parent="PlataformasC/PathFollow2D4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformasC/PathFollow2D4/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="PlataformasC/PathFollow2D4/StaticBody2D"]
+scale = Vector2( 4, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="PlataformasC"]
+position = Vector2( 892.602, 511.933 )
+offset = 633.53
+rotate = false
+
+[node name="StaticBody2D" type="KinematicBody2D" parent="PlataformasC/PathFollow2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformasC/PathFollow2D3/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="PlataformasC/PathFollow2D3/StaticBody2D"]
+scale = Vector2( 4, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="PlataformasC"]
+position = Vector2( 672.361, 328.718 )
+offset = 321.96
+rotate = false
+
+[node name="StaticBody2D" type="KinematicBody2D" parent="PlataformasC/PathFollow2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformasC/PathFollow2D2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="PlataformasC/PathFollow2D2/StaticBody2D"]
+scale = Vector2( 4, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="Caida" parent="." instance=ExtResource( 6 )]
+position = Vector2( 890.378, 512 )
+
+[node name="Menu de pausa" parent="." instance=ExtResource( 7 )]
+
+[node name="Start_Position" type="Position2D" parent="."]
+position = Vector2( -64, 352 )
+
+[node name="HUD" parent="." instance=ExtResource( 8 )]
