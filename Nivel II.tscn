@@ -6,8 +6,8 @@
 [ext_resource path="res://PlataformasC.gd" type="Script" id=4]
 [ext_resource path="res://sprites/Objetcs/textura.png" type="Texture" id=5]
 [ext_resource path="res://Caida.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Menu de pausa.tscn" type="PackedScene" id=7]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Menu de pausa.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -98,9 +98,9 @@ texture = ExtResource( 5 )
 [node name="Caida" parent="." instance=ExtResource( 6 )]
 position = Vector2( 890.378, 512 )
 
-[node name="Menu de pausa" parent="." instance=ExtResource( 7 )]
-
 [node name="Start_Position" type="Position2D" parent="."]
 position = Vector2( -64, 352 )
 
-[node name="HUD" parent="." instance=ExtResource( 8 )]
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[node name="Menu de pausa" parent="." instance=ExtResource( 8 )]

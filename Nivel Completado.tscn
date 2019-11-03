@@ -20,4 +20,5 @@ shape = SubResource( 1 )
 position = Vector2( -2.39493, 3.42656 )
 scale = Vector2( 0.221619, 0.0874814 )
 texture = ExtResource( 2 )
+
 [connection signal="body_entered" from="." to="." method="_on_Nivel_Completado_body_entered"]

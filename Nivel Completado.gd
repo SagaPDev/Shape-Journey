@@ -1,22 +1,7 @@
 extends Area2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-# Called when the node enters the scene tree for the first time.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _on_Nivel_Completado_body_entered(body):
-#	print(get_tree())
-#	get_tree().current_scene.name
-#	if (body.get_name() == "Jugador"):
-#		if get_tree().current_scene.name == "Nivel I":
-#			get_tree().change_scene("Nivel II.tscn")
-#		elif get_tree().current_scene.name == "Nivel II":
-#			get_tree().change_scene("Nivel III.tscn")
 	print(get_tree().current_scene.name)
 	if (body.get_name() == "Jugador"):
 		get_tree().paused = true
@@ -32,7 +17,7 @@ func _on_Nivel_Completado_body_entered(body):
 			"Nivel IV":
 				get_tree().change_scene("Nivel V.tscn")
 			"Nivel V":
-				get_node("../Label").visible = true
+				get_node("../HUD/AnimationFade").play("fade")
 				pass
 				#play animation fade in
 #				get_tree().change_scene("Nivel VI.tscn")

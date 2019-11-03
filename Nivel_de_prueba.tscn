@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Jugador.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DirtAutotile.tres" type="TileSet" id=2]
 [ext_resource path="res://Path2D.gd" type="Script" id=3]
 [ext_resource path="res://Peligro animated.tscn" type="PackedScene" id=4]
-
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menu de pausa.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Nivel Completado.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -14,14 +17,15 @@ _data = {
 [node name="nivel alfa" type="Node2D"]
 
 [node name="Jugador" parent="." instance=ExtResource( 1 )]
-position = Vector2( 96, 480 )
+position = Vector2( 400.057, 597.16 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 format = 1
-tile_data = PoolIntArray( 131070, 0, 5, 196606, 0, 65541, 262142, 0, 65541, 327678, 0, 65541, 393214, 0, 65541, 458750, 0, 65541, 524286, 0, 65541, 589822, 0, 65541, 655358, 0, 65541, 720894, 0, 65542, 720895, 0, 196609, 655360, 0, 196609, 655361, 0, 196609, 655362, 0, 196609, 655363, 0, 196609, 655364, 0, 196609, 655365, 0, 196609, 655366, 0, 196609, 655367, 0, 196609, 655368, 0, 196609, 655369, 0, 196609, 655370, 0, 196609, 655371, 0, 196609, 655372, 0, 196609, 655373, 0, 196609, 655374, 0, 196609, 655375, 0, 196609, 655376, 0, 196609, 655377, 0, 196609, 655378, 0, 196610 )
+tile_data = PoolIntArray( 720894, 0, 196608, 720895, 0, 196609, 655360, 0, 196609, 655361, 0, 196609, 655362, 0, 196609, 655363, 0, 196609, 655364, 0, 196609, 655365, 0, 196609, 655366, 0, 196609, 655367, 0, 196609, 655368, 0, 196609, 655369, 0, 196609, 655370, 0, 196609, 655371, 0, 196609, 655372, 0, 196609, 655373, 0, 196609, 655374, 0, 196609, 655375, 0, 196609, 655376, 0, 196609, 655377, 0, 196609, 655378, 0, 196610 )
 
 [node name="Peligro" type="Path2D" parent="."]
+editor/display_folded = true
 position = Vector2( 512, 576 )
 rotation = -1.5708
 curve = SubResource( 1 )
@@ -36,18 +40,12 @@ rotation = -3.14159
 
 [node name="Peligro" parent="Peligro/PathFollow2D" instance=ExtResource( 4 )]
 
-[node name="Peligro2" type="Path2D" parent="."]
-position = Vector2( 736, 576 )
-rotation = -1.5708
-curve = SubResource( 1 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="HUD" parent="." instance=ExtResource( 5 )]
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Peligro2"]
-position = Vector2( 255, 0.000976562 )
-rotation = -3.14159
+[node name="Pausa" parent="." instance=ExtResource( 6 )]
 
-[node name="Peligro" parent="Peligro2/PathFollow2D" instance=ExtResource( 4 )]
+[node name="Nivel Completado" parent="." instance=ExtResource( 7 )]
+position = Vector2( 641.242, 609.675 )
 
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 674.923, 599.629 )

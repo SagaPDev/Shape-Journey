@@ -13,10 +13,6 @@ _global_script_class_icons={
 
 }
 
-[android]
-
-modules=false
-
 [application]
 
 config/name="Shape Journey"

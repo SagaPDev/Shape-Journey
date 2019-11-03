@@ -7,8 +7,8 @@
 [ext_resource path="res://Obstaculo Destruible.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Plataforma.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Caida.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Menu de pausa.tscn" type="PackedScene" id=8]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Menu de pausa.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -130,12 +130,12 @@ one_way_collision = true
 [node name="Caida" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1088, 960 )
 
-[node name="Menu de pausa" parent="." instance=ExtResource( 8 )]
-
 [node name="Start_Position" type="Position2D" parent="."]
 position = Vector2( 75.8957, 277.019 )
 
-[node name="HUD" parent="." instance=ExtResource( 9 )]
+[node name="HUD" parent="." instance=ExtResource( 8 )]
+
+[node name="Menu de pausa" parent="." instance=ExtResource( 9 )]
 
 [editable path="Plataforma"]
 

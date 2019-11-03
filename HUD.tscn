@@ -1,6 +1,61 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/Fin:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer/Gracias:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 30 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 30, 30 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 30, 30 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 30, 30 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 30, 30 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -10,20 +65,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface"]
+editor/display_folded = true
 margin_right = 54.0
 margin_bottom = 40.0
 
 [node name="Lives" type="Label" parent="Interface/HBoxContainer"]
 margin_top = 13.0
 margin_bottom = 27.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 
 [node name="Level Name" type="Label" parent="Interface/HBoxContainer"]
 margin_left = 4.0
 margin_top = 13.0
 margin_right = 4.0
 margin_bottom = 27.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Interface"]
+editor/display_folded = true
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -44.0
@@ -33,6 +94,8 @@ margin_bottom = 40.0
 margin_top = 13.0
 margin_right = 16.0
 margin_bottom = 27.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="simbol" type="Label" parent="Interface/HBoxContainer2"]
@@ -40,6 +103,8 @@ margin_left = 20.0
 margin_top = 13.0
 margin_right = 24.0
 margin_bottom = 27.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ":"
 
 [node name="Seconds" type="Label" parent="Interface/HBoxContainer2"]
@@ -47,15 +112,83 @@ margin_left = 28.0
 margin_top = 13.0
 margin_right = 44.0
 margin_bottom = 27.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "00"
-
-[node name="ColorFade" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
 
 [node name="Time" type="Timer" parent="."]
 autostart = true
 
 [node name="AnimationFade" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 1 )
+
+[node name="Botton Saltar" type="TouchScreenButton" parent="."]
+position = Vector2( 500, 256 )
+normal = ExtResource( 2 )
+shape = SubResource( 2 )
+passby_press = true
+action = "ui_accept"
+visibility_mode = 1
+
+[node name="Botton Circulo" type="TouchScreenButton" parent="."]
+position = Vector2( 560, 192 )
+normal = ExtResource( 2 )
+shape = SubResource( 3 )
+passby_press = true
+action = "ui_cancel"
+visibility_mode = 1
+
+[node name="Boton Cuadrado" type="TouchScreenButton" parent="."]
+position = Vector2( 450, 192 )
+normal = ExtResource( 2 )
+shape = SubResource( 4 )
+passby_press = true
+action = "ui_options"
+visibility_mode = 1
+
+[node name="Botton Derecha" type="TouchScreenButton" parent="."]
+position = Vector2( 85.1283, 256 )
+normal = ExtResource( 2 )
+shape = SubResource( 5 )
+passby_press = true
+action = "ui_right"
+visibility_mode = 1
+
+[node name="Botton Izquierda" type="TouchScreenButton" parent="."]
+position = Vector2( 9.25308, 256 )
+normal = ExtResource( 2 )
+shape = SubResource( 6 )
+passby_press = true
+action = "ui_left"
+visibility_mode = 1
+
+[node name="ColorFade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0, 0, 0, 0 )
+
+[node name="End_message" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 267.0
+margin_top = 164.0
+margin_right = 373.0
+margin_bottom = 196.0
+
+[node name="Fin" type="Label" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 106.0
+margin_bottom = 14.0
+text = "¡Fin Del Juego!"
+align = 1
+
+[node name="Gracias" type="Label" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 18.0
+margin_right = 106.0
+margin_bottom = 32.0
+text = "Gracias Por Jugar"
 [connection signal="timeout" from="Time" to="." method="_on_Time_timeout"]

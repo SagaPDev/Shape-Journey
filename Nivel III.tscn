@@ -7,8 +7,8 @@
 [ext_resource path="res://Plataforma.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Caida.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Peligro animated.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Menu de pausa.tscn" type="PackedScene" id=8]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Menu de pausa.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -134,12 +134,12 @@ curve = SubResource( 6 )
 position = Vector2( 1504, 864 )
 curve = SubResource( 6 )
 
-[node name="Menu de pausa" parent="." instance=ExtResource( 8 )]
-
 [node name="Start_Position" type="Position2D" parent="."]
 position = Vector2( 53.9463, 225.593 )
 
-[node name="HUD" parent="." instance=ExtResource( 9 )]
+[node name="HUD" parent="." instance=ExtResource( 8 )]
+
+[node name="Menu de pausa" parent="." instance=ExtResource( 9 )]
 [connection signal="body_entered" from="Nivel Completado" to="." method="_on_Nivel_Completado_body_entered"]
 
 [editable path="Plataforma"]
